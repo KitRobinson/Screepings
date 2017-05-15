@@ -4,7 +4,9 @@ var roadFlagger = {
     
     //the colony roadflagger runs through all the roadflags in a room.  It ticks them down to degrade them, and alternately places a road construction requst if the flag has a high enough value
     run: function(room){
+        console.log("---- Road Flagging REPORT ---- ")
         var roadFlags = room.find(FIND_FLAGS, {filter: {color: COLOR_WHITE}})
+        console.log("---- Flags Found: " + roadFlags.length)
         for (f in roadFlags){
             // go through each flag.
             
@@ -21,7 +23,7 @@ var roadFlagger = {
                     roadFlags[f].remove()
                 }
                 else if (roadFlags[f].memory.visits > 5){
-                    roadFlags[f].pos.createConstructionSite(STRUCTURE_ROAD)
+                    console.log(roadFlags[f].pos.createConstructionSite(STRUCTURE_ROAD))
                 }
             }
             // remove one from its visit count

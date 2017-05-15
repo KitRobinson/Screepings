@@ -1,11 +1,7 @@
 var roleUpgrader = {
     
     run: function(creep){
-        
-        if(!creep.memory.foodSource){
-            var sources = creep.room.find(FIND_SOURCES)
-            creep.memory.foodSource = sources[Math.floor(Math.random() * sources.length)].id
-        }
+
         
         if (!creep.memory.spending){
             if(creep.carry.energy < creep.carryCapacity){

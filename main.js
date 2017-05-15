@@ -41,7 +41,7 @@ module.exports.loop = function () {
         colonyMaintainance.run();
         reportStatus.run();
         colonySense.run();
-        colonyRoadFlagger.run
+        colonyRoadFlagger.run(Game.spawns["RexRose"].room)
         colonyArchitect.run(Game.spawns["RexRose"])
     }
     

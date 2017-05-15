@@ -3,11 +3,6 @@ var roleJanitor = {
     
     run: function(creep){
         
-        //designate this creep a preferred foodSource if it lacks one
-        if(!creep.memory.foodSource){
-            var sources = creep.room.find(FIND_SOURCES)
-            creep.memory.foodSource = sources[Math.floor(Math.random() * sources.length)].id
-        }
         
         //locate an action target...
         

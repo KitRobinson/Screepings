@@ -2,11 +2,7 @@ var roleHarvester = require('role.harvest')
 var roleBuilder = {
 
     run: function(creep){
-        
-        if(!creep.memory.foodSource){
-            var sources = creep.room.find(FIND_SOURCES)
-            creep.memory.foodSource = sources[Math.floor(Math.random() * sources.length)].id
-        }
+
         
         var target = creep.pos.findClosestByRange(FIND_CONSTRUCTION_SITES)
         if (target) {

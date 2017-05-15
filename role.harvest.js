@@ -1,13 +1,15 @@
+var pickFoodSource = require('creepHelper.pickFoodSource')
 var roleUpgrade = require('role.upgrader')
 var roleHarvest = {
     
     run: function(creep){
-        
-        //randomly assign each creep a favorite food source when possible
-        if(!creep.memory.foodSource){
-            var sources = creep.room.find(FIND_SOURCES)
-            creep.memory.foodSource = sources[Math.floor(Math.random() * sources.length)].id
-        }
+
+        //v4.1 - set aside a method to randomize based on availability, and add this to the citizen routine        
+        // //randomly assign each creep a favorite food source when possible
+        // if(!creep.memory.foodSource){
+        //     creep.memory.foodSource = pickFoodSource(creep.room)
+        //     creep.say("food source " + creep.memory.foodSource)
+        // }
         
         //v2 --- assign creeps to source when they first learn to love harvesting
         

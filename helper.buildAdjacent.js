@@ -1,3 +1,5 @@
+var getAdjacentPlains = require('helper.getAdjacentPlains')
+
 var buildAdjacent = {
     
     run: function(roomPos, structType){
@@ -20,8 +22,11 @@ var buildAdjacent = {
                         if(thisRoom.lookForAt('structure', testLoc.x, testLoc.y).length == 0){
                             //and no construction sites
                             if(thisRoom.lookForAt('constructionSite', testLoc.x, testLoc.y).length == 0){
+                                //and is not adjacent to more than one wall
+                                if(getAdjacentPlains.run(testLoc) > 6){
                                 //then we can add it to the possibility array!
-                                locs.push(new RoomPosition(roomPos.x + i, roomPos.y + j, roomPos.roomName))
+                                    locs.push(new RoomPosition(roomPos.x + i, roomPos.y + j, roomPos.roomName))
+                                }
                             }
                         }
                     }
