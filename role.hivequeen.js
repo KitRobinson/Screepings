@@ -8,11 +8,15 @@ var hiveQueen = {
         // set worker stat array based on budget()
         // v2, just loop, adding a base worker module for every 200 in the budget
         var workerStats = []
-        while (budget > 200){
+        
+        //v3 - once we are fully pumped up I think we are using TOO much energy spawning creeps, and therefore not upgrading at maximum speed.
+        var sizeMonitor = 0
+        while (budget > 200 && sizeMonitor < 6){
             workerStats.push(WORK);
             workerStats.push(MOVE);
             workerStats.push(CARRY);
             budget += -200;
+            sizeMonitor += 1;
         }
         
         // V1 --- set a bunch of conditions

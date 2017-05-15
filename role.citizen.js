@@ -6,11 +6,13 @@ var roleCitizen = {
         var thisRoom = creep.room
         if (creep.fatigue > 0){
         // plant or upgrade flag. (removing inappropriate flags is done by the colony flag manager)
-            var hereFlag =  creep.pos.lookFor(LOOK_FLAGS)
+            var hereFlag = creep.pos.lookFor(LOOK_FLAGS)
             // if there is alrady a flag, and it is a white road-flag
-            if (hereFlag.length > 0 && hereFlag.color == COLOR_WHITE){
+            if (hereFlag.length > 0 && hereFlag[0].color == COLOR_WHITE){
                 //increment its visit counter
+                console.log("flag already at location is White")
                 hereFlag[0].memory.visits += 1
+                console.log("flag visits set to " + hereFlag[0].memory.visits)
             }
             //if there is no flag, make a white road-flag
             else {
